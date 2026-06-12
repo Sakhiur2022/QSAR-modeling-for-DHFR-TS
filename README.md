@@ -49,7 +49,11 @@
 ├─ app.py
 ├─ data
 │  ├─ preprocessed
-│  │  └─ bioactivity_preprocessed_data.csv
+│  │  ├─ bioactivity_preprocessed_data.csv
+│  │  └─ fingerprints
+│  │     ├─ fingerprints.zip
+│  │     ├─ Substructure.csv
+│  │     └─ SubstructureCount.csv
 │  └─ raw
 │     └─ CHEMBL1939.csv
 ├─ fingerprints_xml.zip
@@ -57,6 +61,7 @@
 ├─ models
 ├─ notebooks
 │  ├─ bioactivity_data_preprocessing.ipynb
+│  ├─ Descriptor_Dataset_Preparation.ipynb
 │  └─ Exploratory_Data_Analysis.ipynb
 ├─ README.md
 ├─ results
