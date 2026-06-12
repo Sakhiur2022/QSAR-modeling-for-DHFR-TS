@@ -13,26 +13,25 @@
 
 ## 📌 Overview
 
-|                 |                                                       |
-| --------------- | ----------------------------------------------------- |
-| **Target**      | DHFR–TS                                               |
-| **Data Source** | ChEMBL                                                |
-| **Task**        | Regression (pIC50) + Classification (active/inactive) |
-| **Approach**    | Molecular Fingerprints → ML Models → Benchmarking     |
+|                 |                                                         |
+| --------------- | ------------------------------------------------------- |
+| **Target**      | DHFR–TS                                                 |
+| **Data Source** | ChEMBL                                                  |
+| **Task**        | Regression (pChEMBL) + Classification (active/inactive) |
+| **Approach**    | Molecular Fingerprints → ML Models → Benchmarking       |
 
 ---
 
 ## 📸 Screenshots
 
-| EDA & Distribution          | Model Performance                   |
-| --------------------------- | ----------------------------------- |
-| ![EDA](screenshots/eda.png) | ![Results](screenshots/results.png) |
+## Exploratory Data Analysis
 
-| Fingerprint Comparison                        | App Workflow                         |
-| --------------------------------------------- | ------------------------------------ |
-| ![Fingerprints](screenshots/fingerprints.png) | ![App](screenshots/app_workflow.png) |
-
----
+| figure            |                              plot                               |
+| ----------------- | :-------------------------------------------------------------: |
+| bioactivity_class | <img src="screenshots/plot_bioactivity_class.png" width="50%"/> |
+| LogP vs MW        |    <img src="screenshots/plot_MW_vs_LogP.png" width="50%"/>     |
+| MW                |        <img src="screenshots/plot_MW.png" width="50%"/>         |
+| pChEMBL           |      <img src="screenshots/plot_pChEMBL.png" width="50%"/>      |
 
 ## ✨ Features
 
@@ -47,27 +46,41 @@
 ## 📁 Project Structure
 
 ```
-├── dataset/
-│   ├── raw/                    # Raw data from ChEMBL / BindingDB
-│   └── processed/              # Cleaned & featurized datasets
-│
-├── notebooks/
-│   ├── 01_eda.ipynb
-│   ├── 02_preprocessing.ipynb
-│   ├── 03_modeling.ipynb
-│   └── 04_benchmarking.ipynb
-│
-├── src/
-│   ├── descriptors.py          # Fingerprint generation
-│   ├── preprocessing.py
-│   ├── train.py
-│   └── evaluate.py
-│
-├── models/                     # Saved .pkl / .joblib artifacts
-├── screenshots/                # Graphs and app workflow images
-├── app.py                      # Prediction app entry point
-├── requirements.txt
-└── README.md
+├─ app.py
+├─ data
+│  ├─ preprocessed
+│  │  └─ bioactivity_preprocessed_data.csv
+│  └─ raw
+│     └─ CHEMBL1939.csv
+├─ fingerprints_xml.zip
+├─ LICENSE
+├─ models
+├─ notebooks
+│  ├─ bioactivity_data_preprocessing.ipynb
+│  └─ Exploratory_Data_Analysis.ipynb
+├─ README.md
+├─ results
+│  ├─ plots
+│  │  ├─ plot_bioactivity_class.pdf
+│  │  ├─ plot_ic50.pdf
+│  │  ├─ plot_LogP.pdf
+│  │  ├─ plot_MW.pdf
+│  │  ├─ plot_MW_vs_LogP.pdf
+│  │  ├─ plot_NumHAcceptors.pdf
+│  │  └─ plot_NumHDonors.pdf
+│  ├─ results.zip
+│  └─ tables
+│     ├─ mannwhitneyu_LogP.csv
+│     ├─ mannwhitneyu_MW.csv
+│     ├─ mannwhitneyu_NumHAcceptors.csv
+│     ├─ mannwhitneyu_NumHDonors.csv
+│     └─ mannwhitneyu_pChEMBL_value.csv
+├─ screenshots
+│  ├─ plot_bioactivity_class.png
+│  ├─ plot_MW.png
+│  ├─ plot_MW_vs_LogP.png
+│  └─ plot_pChEMBL.png
+└─ src
 ```
 
 ---
@@ -105,7 +118,7 @@ streamlit run app.py
 - **Source:** [ChEMBL](https://www.ebi.ac.uk/chembl/)
 - **Target:** DHFR–TS
 - **Size:** ~[N] compounds after filtering
-- **Activity Metric:** IC50 → converted to pIC50
+- **Activity Metric:** pChEMBL → converted to pIC50
 
 ---
 
